@@ -1,0 +1,108 @@
+{
+	"info": {
+		"_postman_id": "ad047e43-9b9b-4548-93da-678369d60216",
+		"name": "mezo api tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39810219"
+	},
+	"item": [
+		{
+			"name": "get account for upper case username",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", () => {\r",
+							"    pm.expect(pm.response.code).to.eql(200)\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Returns expected account details\", () => {\r",
+							"    const responseJson = pm.response.json()\r",
+							"    pm.expect(responseJson.evmAddress).to.eql(\"0x02c3d893D812a8BeCa6BF8226ab5e7636CB6A9B6\")\r",
+							"    pm.expect(responseJson.btcAddress).to.eql(\"bc1qveplp4rcshncxjd4nmehqug9z44eh0lq37t2va\")\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://portal.api.mezo.org/api/v2/accounts?mezoId=Gragus.mezo",
+					"protocol": "https",
+					"host": [
+						"portal",
+						"api",
+						"mezo",
+						"org"
+					],
+					"path": [
+						"api",
+						"v2",
+						"accounts"
+					],
+					"query": [
+						{
+							"key": "mezoId",
+							"value": "Gragus.mezo"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get  account for lower case username",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", () => {\r",
+							"    pm.expect(pm.response.code).to.eql(200)\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Returns expected account details\", () => {\r",
+							"    const responseJson = pm.response.json()\r",
+							"    pm.expect(responseJson.evmAddress).to.eql(\"0x02c3d893D812a8BeCa6BF8226ab5e7636CB6A9B6\")\r",
+							"    pm.expect(responseJson.btcAddress).to.eql(\"bc1qveplp4rcshncxjd4nmehqug9z44eh0lq37t2va\")\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://portal.api.mezo.org/api/v2/accounts?mezoId=gragus.mezo",
+					"protocol": "https",
+					"host": [
+						"portal",
+						"api",
+						"mezo",
+						"org"
+					],
+					"path": [
+						"api",
+						"v2",
+						"accounts"
+					],
+					"query": [
+						{
+							"key": "mezoId",
+							"value": "gragus.mezo"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
