@@ -103,6 +103,168 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "get daily mats for account with referrals",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", () => {\r",
+							"    pm.expect(pm.response.code).to.eql(200)\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Returns expected daily mats\", () => {\r",
+							"    const responseJson = pm.response.json()\r",
+							"    pm.expect(responseJson.address).to.eql(\"0x011074cA9EEff0836a68b170E46c4d20F8CAc727\")\r",
+							"    pm.expect(responseJson.dailyMats).to.eql(22620)\r",
+							"    pm.expect(responseJson.dailyMatsFromDeposits).to.eql(9469)\r",
+							"    pm.expect(responseJson.dailyMatsFromReferrals).to.eql(13151)\r",
+							"    pm.expect(responseJson.dailyMatsFromSecondaryReferrals).to.eql(0)\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Origin",
+						"value": "https://mezo.org",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://portal.api.mezo.org/api/v1/accounts/0x011074cA9EEff0836a68b170E46c4d20F8CAc727/mats",
+					"protocol": "https",
+					"host": [
+						"portal",
+						"api",
+						"mezo",
+						"org"
+					],
+					"path": [
+						"api",
+						"v1",
+						"accounts",
+						"0x011074cA9EEff0836a68b170E46c4d20F8CAc727",
+						"mats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get daily mats for account with referrals and secondary referrals",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", () => {\r",
+							"    pm.expect(pm.response.code).to.eql(200)\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Returns expected daily mats\", () => {\r",
+							"    const responseJson = pm.response.json()\r",
+							"    pm.expect(responseJson.address).to.eql(\"0x08385BF79f956270Cc849648Cb320C225672FADb\")\r",
+							"    pm.expect(responseJson.dailyMats).to.eql(67996)\r",
+							"    pm.expect(responseJson.dailyMatsFromDeposits).to.eql(54111)\r",
+							"    pm.expect(responseJson.dailyMatsFromReferrals).to.eql(7610)\r",
+							"    pm.expect(responseJson.dailyMatsFromSecondaryReferrals).to.eql(6275)\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Origin",
+						"value": "https://mezo.org",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://portal.api.mezo.org/api/v1/accounts/0x08385BF79f956270Cc849648Cb320C225672FADb/mats",
+					"protocol": "https",
+					"host": [
+						"portal",
+						"api",
+						"mezo",
+						"org"
+					],
+					"path": [
+						"api",
+						"v1",
+						"accounts",
+						"0x08385BF79f956270Cc849648Cb320C225672FADb",
+						"mats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get daily mats for account with no referrals",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", () => {\r",
+							"    pm.expect(pm.response.code).to.eql(200)\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Returns expected daily mats\", () => {\r",
+							"    const responseJson = pm.response.json()\r",
+							"    pm.expect(responseJson.address).to.eql(\"0x0cCbCE598D5663b7B8c2809405f2D5A666E5d62F\")\r",
+							"    pm.expect(responseJson.dailyMats).to.eql(3745)\r",
+							"    pm.expect(responseJson.dailyMatsFromDeposits).to.eql(3745)\r",
+							"    pm.expect(responseJson.dailyMatsFromReferrals).to.eql(0)\r",
+							"    pm.expect(responseJson.dailyMatsFromSecondaryReferrals).to.eql(0)\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Origin",
+						"value": "https://mezo.org",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://portal.api.mezo.org/api/v1/accounts/0x0cCbCE598D5663b7B8c2809405f2D5A666E5d62F/mats",
+					"protocol": "https",
+					"host": [
+						"portal",
+						"api",
+						"mezo",
+						"org"
+					],
+					"path": [
+						"api",
+						"v1",
+						"accounts",
+						"0x0cCbCE598D5663b7B8c2809405f2D5A666E5d62F",
+						"mats"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
